@@ -1,0 +1,31 @@
+/* src/index.css */
+.header {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 3rem;
+  color: #3498db; /* Blue color */
+  font-family: 'Arial', sans-serif;
+  animation: fadeIn 2s ease-in-out, slideDown 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
