@@ -7,10 +7,12 @@ import {
   disconnectSocket,
   getChatHistory,
 } from "../../utils/socket";
+import { MdClose } from "react-icons/md";
 
 const Chat: React.FC = () => {
   const chatStyles = {
     chatContainer: {
+      marginLeft: "40%",
       width: "400px",
       height: "500px",
       border: "1px solid #ddd",
@@ -114,7 +116,27 @@ const Chat: React.FC = () => {
 
   return (
     <div style={chatStyles.chatContainer}>
-      {context?.currentChatUser}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "10px",
+          borderBottom: "1px solid #ddd",
+        }}
+      >
+        <span>{context?.currentChatUser}</span>
+        <button
+          style={{
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+          }}
+          onClick={() => window.location.reload()}
+        >
+          <MdClose size={20} color="#007bff" />{" "}
+        </button>
+      </div>
       <div style={chatStyles.messageList} ref={messageListRef}>
         {messages.map((msg, index) => (
           <div
