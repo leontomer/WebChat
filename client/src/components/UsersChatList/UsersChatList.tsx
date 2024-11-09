@@ -3,7 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import { Card } from "react-bootstrap";
 import { useQuery } from "@tanstack/react-query";
 import { fetchUserLatestChats } from "../../actions/chatActions";
-
+import { formatDate } from "../../utils/helpers";
 type Props = {};
 
 const UsersChatList = (props: Props) => {
@@ -51,14 +51,7 @@ const UsersChatList = (props: Props) => {
             ></div>
             <div style={{ flex: 1, fontWeight: "bold" }}>{chat._id}</div>
             <div style={{ color: "#888", fontSize: "14px" }}>
-              {new Date(chat.timestamp).toLocaleString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-              })}
+              {formatDate(chat.timestamp)}
             </div>
           </Card.Body>
         </Card>

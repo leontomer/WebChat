@@ -8,7 +8,7 @@ import {
   getChatHistory,
 } from "../../utils/socket";
 import { MdClose } from "react-icons/md";
-
+import { formatDate } from "../../utils/helpers";
 const Chat: React.FC = () => {
   const chatStyles = {
     chatContainer: {
@@ -157,16 +157,7 @@ const Chat: React.FC = () => {
               }}
             >
               <span>{msg.message} </span>
-              <span>
-                {new Date(msg.timestamp).toLocaleString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                })}
-              </span>
+              <span>{formatDate(msg.timestamp)}</span>
             </span>
           </div>
         ))}

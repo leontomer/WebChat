@@ -1,14 +1,15 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express, { Application } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import authRoutes from "./routes/auth";
 import searchRoute from "./routes/search";
-import dotenv from "dotenv";
+import chatRoute from "./routes/chat";
 import connectDB from "./db";
 import socketSetup from "./sokcet";
 import { createServer } from "http";
 
-dotenv.config();
 const app: Application = express();
 connectDB();
 
@@ -27,6 +28,7 @@ app.get("/", (req: any, res: any) => res.send("Server is running"));
 app.use("/auth", authRoutes);
 
 app.use(searchRoute);
+app.use(chatRoute);
 
 const PORT = process.env.PORT || 5000;
 const server = createServer(app);

@@ -1,9 +1,10 @@
 import express from "express";
 import User from "../models/User";
+const authenticate = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
-router.get("/searchUser/:searchTerm", async (req, res) => {
+router.get("/searchUser/:searchTerm", authenticate, async (req, res) => {
   const searchTerm = req.params.searchTerm;
   try {
     const users = await User.find({
