@@ -7,6 +7,6 @@ export const searchUser = async (searchTerm: string) => {
     const response = await axios.get(`${API_URL}/searchUser/${searchTerm}`);
     return response.data;
   } catch (error) {
-    console.error("Login failed", error);
+    console.error("search failed", error);
   }
 };
