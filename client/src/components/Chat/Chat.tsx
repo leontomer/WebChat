@@ -132,7 +132,7 @@ const Chat: React.FC = () => {
             border: "none",
             cursor: "pointer",
           }}
-          onClick={() => window.location.reload()}
+          onClick={() => context?.setCurrentChatUser(null)}
         >
           <MdClose size={20} color="#007bff" />{" "}
         </button>
